@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using AspNetCore.EventBus.RabbitMQ;
 using Identity.Api.Data;
 using Identity.Api.Data.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -57,6 +58,16 @@ namespace Identity.Api
                             Encoding.ASCII.GetBytes(Configuration["JwtConfiguration:SecurityKey"]))
                     };
                 });
+
+            services.AddEventBusRabbitMQ(o =>
+            {
+                o.HostName = "localhost";
+                o.UserName = "guest";
+                o.Password = "guest";
+                o.QueueName = "event_bus_queue";
+                o.BrokerName = "event_bus";
+                o.RetryCount = 5;
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

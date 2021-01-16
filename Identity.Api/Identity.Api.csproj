@@ -25,5 +25,12 @@
     <Folder Include="Data\Entities\" />
     <Folder Include="Models\" />
     <Folder Include="Extensions\" />
+    <Folder Include="IntegrationEvents\" />
+    <Folder Include="IntegrationEvents\Events\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetCore.EventBus\AspNetCore.EventBus.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

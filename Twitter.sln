@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{AE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{36D8FC4F-B6D3-4260-A861-8A9A9484385B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{B7C92DE0-0BDF-4CAB-BCA6-FD15E7E87284}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.EventBus", "AspNetCore.EventBus\AspNetCore.EventBus.csproj", "{C58D1998-8623-4C9A-B3A9-52A46618FB43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,10 @@ Global
 		{36D8FC4F-B6D3-4260-A861-8A9A9484385B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36D8FC4F-B6D3-4260-A861-8A9A9484385B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36D8FC4F-B6D3-4260-A861-8A9A9484385B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58D1998-8623-4C9A-B3A9-52A46618FB43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58D1998-8623-4C9A-B3A9-52A46618FB43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58D1998-8623-4C9A-B3A9-52A46618FB43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58D1998-8623-4C9A-B3A9-52A46618FB43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -29,5 +37,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AE7682F8-5434-4731-95B7-293081C4E021} = {0992172B-D2FD-4F99-BE3A-2011A805D4AC}
 		{36D8FC4F-B6D3-4260-A861-8A9A9484385B} = {AE7682F8-5434-4731-95B7-293081C4E021}
+		{C58D1998-8623-4C9A-B3A9-52A46618FB43} = {B7C92DE0-0BDF-4CAB-BCA6-FD15E7E87284}
 	EndGlobalSection
 EndGlobal

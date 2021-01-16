@@ -3,8 +3,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AspNetCore.EventBus;
 using Identity.Api.Data.Entities;
 using Identity.Api.Extensions;
+using Identity.Api.IntegrationEvents.Events;
 using Identity.Api.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,15 +21,18 @@ namespace Identity.Api.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IConfiguration _configuration;
+        private readonly IEventBus _eventBus;
 
         public AccountController(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IEventBus eventBus)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
+            _eventBus = eventBus;
         }
 
         [HttpPost]
@@ -84,6 +89,8 @@ namespace Identity.Api.Controllers
 
             if (result.Succeeded)
             {
+                _eventBus.Publish(new UserRegisterEvent() { UserId= user.Id });
+
                 return Created($"User/{user.Id}", null);
             }
 
