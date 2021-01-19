@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using MongoDB.Driver;
 using UserInfo.Api.Data.Entities;
 
 namespace UserInfo.Api.Data.Services
@@ -11,7 +12,12 @@ namespace UserInfo.Api.Data.Services
         {
             _dbContext = dbContext;
         }
- 
+
+        public async Task<Info> GetByUserId(int userId)
+        {
+            return await _dbContext.Infos.Find(c => c.UserId == userId).SingleOrDefaultAsync();
+        }
+
         public async Task Create(Info info)
         {
             await _dbContext.Infos.InsertOneAsync(info);
